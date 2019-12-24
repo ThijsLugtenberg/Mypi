@@ -1,4 +1,4 @@
-import sys, pygame, dot
+import sys, pygame, dot, brian
 
 from pygame.locals import *
 pygame.init()
@@ -11,9 +11,7 @@ screen = pygame.display.set_mode(size)
 pygame.display.set_caption("AI tester")
 
 # Create dot
-#Dead = False
-#Goal = False
-TestDot = dot.dot(5)
+TestDot = dot.dot(10)
 # GoalDot = dot.dot(screen, 10, Dead, Goal)
 
 while True:
@@ -21,8 +19,9 @@ while True:
         pygame.time.delay(100)
 
         screen.fill((255,255,255))
-        TestDot.DotMove()
         TestDot.PrintDot(screen)
+        TestDot.DotMove()
+        #TestDot.PrintDot(screen)
         pygame.draw.circle(screen, (0,0,0), (400,0), 10)
         pygame.display.update()
 

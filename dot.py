@@ -1,4 +1,5 @@
 import pygame
+import brian
 import numpy as np
 class dot:
 
@@ -13,8 +14,14 @@ class dot:
     # determine dot move and checks if it hits goal, boundry or object
 
     def DotMove(self):
-        self.pos[1] = self.pos[1]-107 # making some semirandom arbritary movement
-        self.pos[0] = self.pos[0] + self.pos[1]/20 
+        step = 0
+        #self.pos[1] = self.pos[1]-107 # making some semirandom arbritary movement
+        #self.pos[0] = self.pos[0] + self.pos[1]/20
+        print step
+        step = step + 1
+        Directions = brian.brian()
+        Directions.Random()
+        self.pos = Directions.position[0][:]
         #checking hitting enything.
         if self.pos[1] == 0 and self.pos[0] == 400:
             self.Goal = True 

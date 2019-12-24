@@ -6,11 +6,29 @@ class brian:
         
 
     def __init__(self):
-        directions = [ [] in range (size)]
+        self.size = 1000 
+        directions = [ [] in range (self.size)]
+        self.position = np.zeros((self.size,2))
+    def Random(self):
+        #self.position = np.array((self.size,2))
+        self.position[0][0] = 400
+        self.position[0][1] = 800
+        for x in range (self.size):
+          randx = random.randrange(-10,10)
+          randy = random.randrange(-10,10)
+          self.position[x][0] = self.position[x-1][0] + randx
+          self.position[x][1] = self.position[x-1][1] + randy
+          self.position[0][0] = 400
+          self.position[0][1] = 750 
+          self.position = self.position.astype(int)
+        print self.position
+    def mutate(self):
+        mutationRate = 0.01 
 
-    def Randolm(self, size):
-        for x in self.size:
-          position = pg.math.Vector2(100, 200)
-          velocity = pg.math.Vector2(8, 0).rotate(random.randrange(360))
-          position += velocity
-          print position 
+        rand = random(1)
+
+        if rand > mutationRate:
+            RandomAngle = random(2*PI)
+            directions[i] = pg.math.Vector2(RandomAngle)
+        
+        
